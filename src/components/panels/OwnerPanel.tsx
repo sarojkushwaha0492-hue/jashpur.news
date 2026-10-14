@@ -60,7 +60,8 @@ export const OwnerPanel: React.FC = () => {
       const res = await fetch('/api/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
-      if (res.ok) {
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
         const data = await res.json();
         setUsersList(data);
       }
@@ -78,7 +79,8 @@ export const OwnerPanel: React.FC = () => {
       const res = await fetch('/api/audit-logs', {
         headers: { Authorization: `Bearer ${token}` }
       });
-      if (res.ok) {
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
         const data = await res.json();
         setAuditLogs(data);
       }
@@ -91,7 +93,8 @@ export const OwnerPanel: React.FC = () => {
   const fetchSettings = async () => {
     try {
       const res = await fetch('/api/settings');
-      if (res.ok) {
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
         const data = await res.json();
         setSettings(data);
       }

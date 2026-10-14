@@ -96,11 +96,19 @@ export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [articles, setArticles] = useState<NewsArticle[]>(() => {
     try {
       const saved = localStorage.getItem('jashpur_news_cached_articles_v2');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
     } catch {
       //
     }
-    return [];
+    return initialNewsArticles.map(a => ({
+      ...a,
+      status: 'published' as ArticleStatus,
+      createdAt: a.publishedAt,
+      updatedAt: a.publishedAt
+    }));
   });
   const [isLoadingArticles, setIsLoadingArticles] = useState<boolean>(false);
   const [bookmarks, setBookmarks] = useState<string[]>(() => {
@@ -116,7 +124,9 @@ export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Sync articles to localStorage cache
   useEffect(() => {
     try {
-      localStorage.setItem('jashpur_news_cached_articles_v2', JSON.stringify(articles));
+      if (articles.length > 0) {
+        localStorage.setItem('jashpur_news_cached_articles_v2', JSON.stringify(articles));
+      }
     } catch {
       //
     }
@@ -135,7 +145,7 @@ export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return translations[lang]?.[key] || translations['hi'][key] || key;
   };
 
-  // Fetch articles from backend API
+  // Fetch articles from backend API safely
   const fetchArticles = useCallback(async () => {
     setIsLoadingArticles(true);
     try {
@@ -146,9 +156,10 @@ export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (effectiveToken) headers['Authorization'] = `Bearer ${effectiveToken}`;
 
       const res = await fetch('/api/articles?includeAll=true', { headers });
-      if (res.ok) {
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
         const data = await res.json();
-        if (Array.isArray(data)) {
+        if (Array.isArray(data) && data.length > 0) {
           setArticles(data);
         }
       }
@@ -218,7 +229,7 @@ export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
   };
 
-  // Create article via backend API
+  // Create article via backend API with offline fallback
   const createArticle = async (data: Partial<NewsArticle> & { title: string; category: NewsCategory; summary: string; submitForReview?: boolean }): Promise<string | null> => {
     try {
       const headers: Record<string, string> = { 'Content-Type': 'application/json' };
@@ -230,15 +241,64 @@ export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children
         body: JSON.stringify(data)
       });
 
-      if (res.ok) {
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
         const created = await res.json();
         await fetchArticles();
         return created.id;
       }
     } catch (err) {
-      console.error('Create article failed', err);
+      console.warn('Backend create article failed, falling back to local storage', err);
     }
-    return null;
+
+    // Local fallback creation
+    const newId = 'art_' + Date.now();
+    const nowIso = new Date().toISOString();
+    const contentArray = Array.isArray(data.content)
+      ? data.content
+      : typeof data.content === 'string'
+      ? [data.content]
+      : [data.summary];
+
+    const newArticle: NewsArticle = {
+      id: newId,
+      title: data.title,
+      slug: data.slug || ('news-' + Date.now()),
+      category: data.category,
+      summary: data.summary,
+      content: contentArray,
+      imageUrl: data.imageUrl || 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=1200&q=80',
+      publishedAt: 'अभी-अभी',
+      author: data.author || {
+        id: currentUser?.id || 'usr_admin_01',
+        name: currentUser?.name || 'संपादक',
+        role: currentUser?.role || 'admin',
+        avatar: currentUser?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+        location: 'जशपुर नगर'
+      },
+      readTime: data.readTime || '3 मिनट',
+      isBreaking: data.isBreaking || false,
+      isFeatured: data.isFeatured || false,
+      views: 1,
+      status: data.submitForReview ? 'pending_review' : 'published',
+      subLocation: data.subLocation || 'जशपुर नगर',
+      authorId: currentUser?.id || 'usr_admin_01',
+      authorName: currentUser?.name || 'संपादक',
+      authorRole: currentUser?.role || 'admin',
+      createdAt: nowIso,
+      updatedAt: nowIso,
+      comments: []
+    };
+
+    setArticles(prev => {
+      const next = [newArticle, ...prev];
+      try {
+        localStorage.setItem('jashpur_news_cached_articles_v2', JSON.stringify(next));
+      } catch {}
+      return next;
+    });
+
+    return newId;
   };
 
   // Update article via backend API
