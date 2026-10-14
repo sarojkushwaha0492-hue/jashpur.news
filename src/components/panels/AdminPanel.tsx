@@ -1819,6 +1819,93 @@ export const AdminPanel: React.FC = () => {
                 </form>
               </div>
             </div>
+
+            {/* Database Backup & Restore for Hostinger Redeploy */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <div className="bg-blue-50/70 border border-blue-200 rounded-xl p-5 space-y-4">
+                <div className="flex items-center gap-2 border-b border-blue-200 pb-3">
+                  <FileText className="w-5 h-5 text-blue-700" />
+                  <div>
+                    <h4 className="font-extrabold text-sm text-gray-900">
+                      डेटा बैकअप व रीस्टोर (Hostinger Backup & Restore)
+                    </h4>
+                    <p className="text-[11px] text-gray-600 mt-0.5">
+                      वेबसाइट को Hostinger पर री-डिपॉलय (Redeploy) करने से पहले अपनी सभी खबरें सुरक्षित करने के लिए बैकअप डाउनलोड करें और अपडेट के बाद रीस्टोर करें।
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center gap-4 text-xs pt-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      try {
+                        const cachedArticles = localStorage.getItem('jashpur_news_cached_articles_v2') || '[]';
+                        const customSettings = localStorage.getItem('jashpur_news_custom_settings') || '{}';
+                        const customCreds = localStorage.getItem('jashpur_admin_custom_creds') || '{}';
+
+                        const backupData = {
+                          version: '1.0',
+                          timestamp: new Date().toISOString(),
+                          articles: JSON.parse(cachedArticles),
+                          settings: JSON.parse(customSettings),
+                          credentials: JSON.parse(customCreds)
+                        };
+
+                        const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `jashpur_news_backup_${new Date().toISOString().split('T')[0]}.json`;
+                        a.click();
+                        URL.revokeObjectURL(url);
+                        alert('बैकअप फाइल सफलतापूर्वक डाउनलोड हो गई है!');
+                      } catch {
+                        alert('बैकअप डाउनलोड करने में त्रुटि।');
+                      }
+                    }}
+                    className="w-full sm:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>📥 सभी खबरों का बैकअप डाउनलोड करें (Download Backup JSON)</span>
+                  </button>
+
+                  <div className="w-full sm:w-auto flex items-center gap-2">
+                    <label className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                      <span>📤 बैकअप फाइल से रीस्टोर करें (Restore JSON)</span>
+                      <input
+                        type="file"
+                        accept=".json"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
+                          const reader = new FileReader();
+                          reader.onload = (event) => {
+                            try {
+                              const json = JSON.parse(event.target?.result as string);
+                              if (json.articles && Array.isArray(json.articles)) {
+                                localStorage.setItem('jashpur_news_cached_articles_v2', JSON.stringify(json.articles));
+                              }
+                              if (json.settings) {
+                                localStorage.setItem('jashpur_news_custom_settings', JSON.stringify(json.settings));
+                              }
+                              if (json.credentials) {
+                                localStorage.setItem('jashpur_admin_custom_creds', JSON.stringify(json.credentials));
+                              }
+                              alert('डेटा सफलतापूर्वक रीस्टोर (Restore) हो गया है! पेज रीफ्रेश हो रहा है...');
+                              window.location.reload();
+                            } catch {
+                              alert('अमान्य बैकअप फाइल। कृपया सही JSON बैकअप अपलोड करें।');
+                            }
+                          };
+                          reader.readAsText(file);
+                        }}
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 

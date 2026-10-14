@@ -585,9 +585,12 @@ export const Header: React.FC = () => {
                 <span className="font-bold text-[#C71920]">जशपुर एवं छत्तीसगढ़ का नंबर 1 ई-पेपर</span>
                 <span>मूल्य: ₹5.00 मात्र</span>
               </div>
-              <h1 className="text-3xl sm:text-5xl font-serif font-black tracking-wider text-[#182230] uppercase">
-                Jashpur<span className="text-[#C71920]">.News</span> दैनिक
-              </h1>
+              <div className="flex items-center justify-center gap-3 my-2">
+                <JashpurLogo className="w-12 h-12 shrink-0 drop-shadow-sm" />
+                <h1 className="text-3xl sm:text-5xl font-serif font-black tracking-wider text-[#182230] uppercase">
+                  Jashpur<span className="text-[#C71920]">.News</span> दैनिक
+                </h1>
+              </div>
               <div className="flex flex-wrap justify-between items-center text-xs font-serif text-gray-800 mt-2 px-2 border-t-2 border-b-2 border-black py-1">
                 <span>दिनांक: <strong>{hindiDate}</strong></span>
                 <span>मुख्य संस्करण: जशपुर, कांसाबेल, पत्थलगांव, कुनकुरी, बगीचा व रायपुर</span>
