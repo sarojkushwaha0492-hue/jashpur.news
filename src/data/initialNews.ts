@@ -1,4 +1,4 @@
-import { NewsArticle, Author, MandiRate } from '../types/news';
+import type { NewsArticle, Author, MandiRate } from '../types/news';
 
 export const defaultAuthors: Author[] = [
   {
