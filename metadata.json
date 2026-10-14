@@ -1,0 +1,6 @@
+{
+  "name": "Jashpur.News",
+  "description": "Jashpur.News - जशपुर, छत्तीसगढ़ और देश-दुनिया की ताज़ा और निष्पक्ष हिंदी ख़बरें।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

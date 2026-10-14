@@ -1,0 +1,454 @@
+{
+  "users": [
+    {
+      "id": "usr_owner_01",
+      "name": "कलेक्टर संपादक (Owner)",
+      "email": "owner@jashpur.news",
+      "phone": "99073 18667",
+      "passwordHash": "37c3e8ef245de78f51898cf06b9338e1c3b2004854bdcba177fbeafc807dd61c1eaa1c0e59db2445711ef1a2ea68bd0777fecce230c965140a18d0ad3f19e7b8",
+      "salt": "jashpur_secure_salt_2026",
+      "role": "owner",
+      "status": "active",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "permissions": {
+        "canPublishDirectly": true,
+        "canManageUsers": true,
+        "canManageTicker": true,
+        "canModerateComments": true,
+        "canManageAds": true
+      },
+      "createdAt": "2026-10-14T10:20:14.507Z",
+      "lastLogin": "2026-10-14T10:20:14.508Z"
+    },
+    {
+      "id": "usr_admin_01",
+      "name": "सरोज (Admin / Bureau Chief)",
+      "email": "saroj.jashpur",
+      "phone": "6267564769",
+      "passwordHash": "91161ae3e30b02e3903160ebede224c3bdba474d3960dfb36a3e87099021732dc9dc59c8d151d9215fa8c371201a7abe55360db3eeeb7a66ac0461efb7136da4",
+      "salt": "jashpur_secure_salt_2026",
+      "role": "admin",
+      "status": "active",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      "permissions": {
+        "canPublishDirectly": true,
+        "canManageUsers": false,
+        "canManageTicker": true,
+        "canModerateComments": true,
+        "canManageAds": false
+      },
+      "createdAt": "2026-10-14T10:20:14.508Z",
+      "lastLogin": "2026-10-14T10:22:30.187Z"
+    },
+    {
+      "id": "usr_staff_01",
+      "name": "अरुण कुमार भगत (Staff Reporter)",
+      "email": "staff@jashpur.news",
+      "passwordHash": "797bbddcb56fa27e26ce9b368234396b0ba802c39a3c35b9e39a2d8b597c0eb2c0400f7abfa3bad72cc669ba7ab27287b7193650a5010ae83872683344f79817",
+      "salt": "jashpur_secure_salt_2026",
+      "role": "staff",
+      "status": "active",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      "permissions": {
+        "canPublishDirectly": false,
+        "canManageUsers": false,
+        "canManageTicker": false,
+        "canModerateComments": false,
+        "canManageAds": false
+      },
+      "createdAt": "2026-10-14T10:20:14.509Z",
+      "lastLogin": "2026-10-14T10:20:14.509Z"
+    }
+  ],
+  "articles": [
+    {
+      "id": "art_01",
+      "title": "जशपुर में धान खरीदी केंद्रों की व्यवस्था चाक-चौबंद, कलेक्टर ने लिया जायजा",
+      "slug": "jashpur-dhan-kharidi-inspection",
+      "summary": "जशपुर जिले में समर्थन मूल्य पर धान खरीदी प्रक्रिया सुचारू रूप से जारी है। कलेक्टर ने विभिन्न उपार्जन केंद्रों का दौरा कर किसानों से चर्चा की।",
+      "content": [
+        "जशपुरनगर। राज्य शासन के मंशानुरूप जिले में धान खरीदी का कार्य पूरी पारदर्शिता और सुगमता के साथ किया जा रहा है। कलेक्टर ने आज सुबह अचानक जिले के प्रमुख उपार्जन केंद्रों का औचक निरीक्षण किया।",
+        "निरीक्षण के दौरान उन्होंने तौल यंत्रों, नमी मापक यंत्रों और बारदाना की उपलब्धता का बारीकी से जायजा लिया। किसानों को समय पर भुगतान के निर्देश भी दिए गए हैं।",
+        "इस अवसर पर स्थानीय किसानों ने व्यवस्था पर संतोष व्यक्त किया और कहा कि इस वर्ष टोकन मिलने में कोई असुविधा नहीं हो रही है।"
+      ],
+      "category": "जशपुर",
+      "subLocation": "जशपुर नगर",
+      "imageUrl": "https://images.unsplash.com/photo-1595974482597-4f6c1cf10f63?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "धान उपार्जन केंद्र का निरीक्षण करते अधिकारी व किसान",
+      "author": {
+        "id": "usr_admin_01",
+        "name": "सुशील टोप्पो",
+        "role": "ब्यूरो चीफ (Bureau Chief)",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+        "location": "जशपुर"
+      },
+      "publishedAt": "13 अक्टूबर 2026, सुबह 08:30 बजे",
+      "readTime": "3 मिनट",
+      "isBreaking": true,
+      "isFeatured": true,
+      "views": 1420,
+      "keyPoints": [
+        "कलेक्टर ने धान खरीदी केंद्रों का किया औचक निरीक्षण",
+        "नमी मापक यंत्रों और तौल की की गई जांच",
+        "किसानों को समय पर भुगतान के कड़े निर्देश"
+      ],
+      "status": "published",
+      "authorId": "usr_staff_01",
+      "authorName": "सुशील टोप्पो",
+      "authorRole": "ब्यूरो चीफ (Bureau Chief)",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "13 अक्टूबर 2026, सुबह 08:30 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "13 अक्टूबर 2026, सुबह 08:30 बजे",
+      "updatedAt": "13 अक्टूबर 2026, सुबह 08:30 बजे"
+    },
+    {
+      "id": "art_02",
+      "title": "छत्तीसगढ़ के बस्तर और सरगुजा संभाग में पर्यटन को मिलेगा नया पंख, इको-टूरिज्म सर्किट का शुभारंभ",
+      "slug": "chhattisgarh-bastar-surguja-ecotourism",
+      "summary": "छत्तीसगढ़ शासन द्वारा प्राकृतिक सौंदर्य से परिपूर्ण बस्तर और सरगुजा क्षेत्रों में पर्यटकों को आकर्षित करने के लिए नई इको-टूरिज्म परियोजनाओं को मंजूरी दी गई है।",
+      "content": [
+        "रायपुर। छत्तीसगढ़ अपनी प्राकृतिक सुंदरता, जलप्रपातों और घने जंगलों के लिए देश-दुनिया में प्रसिद्ध है। पर्यटन विभाग ने आज एक उच्चस्तरीय बैठक में बस्तर और सरगुजा संभाग में नए इको-टूरिज्म सर्किट की घोषणा की है।",
+        "इन सर्किट्स के माध्यम से पर्यटकों को स्थानीय जनजातीय संस्कृति, पारंपरिक खान-पान और हस्तशिल्प से रूबरू होने का अनूठा अवसर मिलेगा।",
+        "मुख्यमंत्री ने कहा कि इस पहल से स्थानीय युवाओं के लिए रोजगार के नए अवसर सृजित होंगे और ग्रामीण अर्थव्यवस्था को मजबूती मिलेगी।"
+      ],
+      "category": "छत्तीसगढ़",
+      "subLocation": "रायपुर",
+      "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "छत्तीसगढ़ के खूबसूरत जलप्रपात व प्राकृतिक वन",
+      "author": {
+        "id": "usr_owner_01",
+        "name": "कलेक्टर संपादक",
+        "role": "प्रधान संपादक (Editor-in-Chief)",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+        "location": "जशपुर नगर"
+      },
+      "publishedAt": "13 अक्टूबर 2026, सुबह 07:15 बजे",
+      "readTime": "4 मिनट",
+      "isTrending": true,
+      "views": 2150,
+      "keyPoints": [
+        "बस्तर और सरगुजा में इको-टूरिज्म सर्किट का विकास",
+        "जनजातीय संस्कृति और हस्तशिल्प को मिलेगा बढ़ावा",
+        "स्थानीय युवाओं के लिए रोजगार के नए द्वार"
+      ],
+      "status": "published",
+      "authorId": "usr_admin_01",
+      "authorName": "कलेक्टर संपादक",
+      "authorRole": "प्रधान संपादक (Editor-in-Chief)",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "13 अक्टूबर 2026, सुबह 07:15 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "13 अक्टूबर 2026, सुबह 07:15 बजे",
+      "updatedAt": "13 अक्टूबर 2026, सुबह 07:15 बजे"
+    },
+    {
+      "id": "art_03",
+      "title": "पत्थलगांव में मेगा स्वास्थ्य शिविर का आयोजन, सैकड़ों ग्रामीणों ने कराया निशुल्क स्वास्थ्य परीक्षण",
+      "slug": "pathalgaon-mega-health-camp",
+      "summary": "पत्थलगांव विकासखंड मुख्यालय में आयोजित निशुल्क स्वास्थ्य शिविर में विशेषज्ञ डॉक्टरों ने मरीजों की जांच की और दवाइयां वितरित कीं।",
+      "content": [
+        "पत्थलगांव। ग्रामीण अंचल के लोगों को बेहतर स्वास्थ्य सुविधाएं उपलब्ध कराने के उद्देश्य से आज नगर के सामुदायिक भवन में एक दिवसीय मेगा स्वास्थ्य शिविर का आयोजन किया गया।",
+        "शिविर में जिला अस्पताल के विशेषज्ञ चिकित्सकों ने मधुमेह, रक्तचाप, नेत्र रोग और सामान्य बीमारियों की जांच की। जरूरतमंदों को निशुल्क दवाइयां भी वितरित की गईं।",
+        "स्थानीय नागरिकों ने इस पहल की सराहना की और भविष्य में भी ऐसे शिविर आयोजित करने की मांग की।"
+      ],
+      "category": "जशपुर",
+      "subLocation": "पत्थलगांव",
+      "imageUrl": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "स्वास्थ्य शिविर में मरीजों की जांच करते चिकित्सक",
+      "author": {
+        "id": "usr_staff_01",
+        "name": "अरुण कुमार भगत",
+        "role": "वरिष्ठ संवाददाता",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+        "location": "पत्थलगांव"
+      },
+      "publishedAt": "12 अक्टूबर 2026, शाम 04:45 बजे",
+      "readTime": "3 मिनट",
+      "views": 980,
+      "status": "published",
+      "authorId": "usr_staff_01",
+      "authorName": "अरुण कुमार भगत",
+      "authorRole": "वरिष्ठ संवाददाता",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "12 अक्टूबर 2026, शाम 04:45 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "12 अक्टूबर 2026, शाम 04:45 बजे",
+      "updatedAt": "12 अक्टूबर 2026, शाम 04:45 बजे"
+    },
+    {
+      "id": "art_04",
+      "title": "कुनकुरी सेंट जेवियर्स चर्च में वार्षिक महासभा संपन्न, शांति और भाईचारे का दिया संदेश",
+      "slug": "kunkuri-church-assembly-peace",
+      "summary": "कुनकुरी स्थित एशिया के प्रसिद्ध चर्च में आयोजित वार्षिक सभा में हजारों की संख्या में मसीही विश्वासी शामिल हुए और शांति की प्रार्थना की।",
+      "content": [
+        "कुनकुरी। जशपुर जिले के कुनकुरी में स्थित कैथेड्रल चर्च में आज वार्षिक महासभा का भव्य आयोजन किया गया। इस धार्मिक अनुष्ठान में राज्य भर से हजारों की संख्या में श्रद्धालु पहुंचे।",
+        "धार्मिक गुरुओं ने अपने संदेश में समाज में आपसी प्रेम, भाईचारे और सांप्रदायिक सौहार्द बनाए रखने का आह्वान किया।",
+        "कार्यक्रम के दौरान शांति मार्च निकाला गया और देश में सुख-समृद्धि की कामना की गई।"
+      ],
+      "category": "जशपुर",
+      "subLocation": "कुनकुरी",
+      "imageUrl": "https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "कुनकुरी चर्च में प्रार्थना सभा में शामिल श्रद्धालु",
+      "author": {
+        "id": "usr_admin_01",
+        "name": "सुशील टोप्पो",
+        "role": "ब्यूरो चीफ (Bureau Chief)",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+        "location": "जशपुर"
+      },
+      "publishedAt": "12 अक्टूबर 2026, दोपहर 02:20 बजे",
+      "readTime": "4 मिनट",
+      "isTrending": true,
+      "views": 1890,
+      "status": "published",
+      "authorId": "usr_admin_01",
+      "authorName": "सुशील टोप्पो",
+      "authorRole": "ब्यूरो चीफ (Bureau Chief)",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "12 अक्टूबर 2026, दोपहर 02:20 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "12 अक्टूबर 2026, दोपहर 02:20 बजे",
+      "updatedAt": "12 अक्टूबर 2026, दोपहर 02:20 बजे"
+    },
+    {
+      "id": "art_05",
+      "title": "कांसाबेल में टमाटर की बंपर पैदावार, स्थानीय किसानों के चेहरे खिले",
+      "slug": "kansabel-tomato-bumper-yield",
+      "summary": "जशपुर जिले के कांसाबेल क्षेत्र में इस वर्ष टमाटर की बंपर फसल हुई है, जिससे स्थानीय किसानों को महानगरों की मंडियों में अच्छा मुनाफा मिल रहा है।",
+      "content": [
+        "कांसाबेल। जशपुर जिले का कांसाबेल इलाका टमाटर उत्पादन के लिए छत्तीसगढ़ भर में अपनी अलग पहचान रखता है। इस सत्र में अनुकूल मौसम और आधुनिक खेती की तकनीकों के कारण टमाटर की बंपर पैदावार हुई है।",
+        "क्षेत्र के किसानों ने बताया कि उन्हें स्थानीय और पड़ोसी राज्यों की मंडियों में टमाटर के बेहतर दाम मिल रहे हैं, जिससे उनकी आर्थिक स्थिति मजबूत हो रही है।",
+        "उद्यानिकी विभाग भी किसानों को ड्रिप सिंचाई और उन्नत बीजों के प्रयोग के लिए निरंतर मार्गदर्शन दे रहा है।"
+      ],
+      "category": "व्यापार",
+      "subLocation": "कांसाबेल",
+      "imageUrl": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "कांसाबेल की मंडी में टमाटर की तुड़ाई करते किसान",
+      "author": {
+        "id": "usr_staff_01",
+        "name": "अरुण कुमार भगत",
+        "role": "वरिष्ठ संवाददाता",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+        "location": "पत्थलगांव"
+      },
+      "publishedAt": "13 अक्टूबर 2026, सुबह 10:10 बजे",
+      "readTime": "3 मिनट",
+      "isBreaking": true,
+      "isFeatured": true,
+      "views": 1650,
+      "keyPoints": [
+        "कांसाबेल क्षेत्र में टमाटर की रिकॉर्ड पैदावार",
+        "महानगरों की मंडियों में मिल रहा है उचित मूल्य",
+        "उद्यानिकी विभाग दे रहा है आधुनिक तकनीकों का प्रशिक्षण"
+      ],
+      "status": "published",
+      "authorId": "usr_staff_01",
+      "authorName": "अरुण कुमार भगत",
+      "authorRole": "वरिष्ठ संवाददाता",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "13 अक्टूबर 2026, सुबह 10:10 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "13 अक्टूबर 2026, सुबह 10:10 बजे",
+      "updatedAt": "13 अक्टूबर 2026, सुबह 10:10 बजे"
+    },
+    {
+      "id": "art_06",
+      "title": "छत्तीसगढ़ पुलिस आरक्षक भर्ती परीक्षा की नई तिथियां घोषित, युवाओं में उत्साह",
+      "slug": "chhattisgarh-police-constable-exam-dates",
+      "summary": "छत्तीसगढ़ पुलिस विभाग द्वारा आरक्षक (GD/Tradesman) पदों के लिए लिखित एवं शारीरिक परीक्षा की तारीखों की घोषणा कर दी गई है।",
+      "content": [
+        "रायपुर। छत्तीसगढ़ पुलिस में लंबे समय से प्रतीक्षित आरक्षक भर्ती परीक्षा की तारीखों का ऐलान कर दिया गया है। राज्य भर के लाखों युवाओं ने इस भर्ती के लिए आवेदन किया है।",
+        "भर्ती बोर्ड के अनुसार, सबसे पहले शारीरिक दक्षता परीक्षा आयोजित की जाएगी, जिसके बाद लिखित परीक्षा होगी। प्रवेश पत्र आधिकारिक वेबसाइट से डाउनलोड किए जा सकेंगे।",
+        "युवाओं ने परीक्षा की तैयारियों के लिए मैदानों में पसीना बहाना शुरू कर दिया है।"
+      ],
+      "category": "शिक्षा",
+      "subLocation": "रायपुर",
+      "imageUrl": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "पुलिस भर्ती परीक्षा की तैयारी करते युवा",
+      "author": {
+        "id": "usr_owner_01",
+        "name": "कलेक्टर संपादक",
+        "role": "प्रधान संपादक (Editor-in-Chief)",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+        "location": "जशपुर नगर"
+      },
+      "publishedAt": "13 अक्टूबर 2026, सुबह 09:00 बजे",
+      "readTime": "3 मिनट",
+      "isTrending": true,
+      "views": 2430,
+      "status": "published",
+      "authorId": "usr_admin_01",
+      "authorName": "कलेक्टर संपादक",
+      "authorRole": "प्रधान संपादक (Editor-in-Chief)",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "13 अक्टूबर 2026, सुबह 09:00 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "13 अक्टूबर 2026, सुबह 09:00 बजे",
+      "updatedAt": "13 अक्टूबर 2026, सुबह 09:00 बजे"
+    },
+    {
+      "id": "art_07",
+      "title": "जशपुर में आदिवासी युवा हॉकी महाकुंभ का भव्य आगाज, उमड़े खेल प्रेमी",
+      "slug": "jashpur-adivasi-youth-hockey-tournament",
+      "summary": "हॉकी की नर्सरी कहे जाने वाले जशपुर जिले में जिला स्तरीय आदिवासी युवा हॉकी महाकुंभ का शानदार शुभारंभ हुआ है, जिसमें दर्जनों टीमें हिस्सा ले रही हैं।",
+      "content": [
+        "जशपुरनगर। खेल प्रेमियों के लिए जशपुर क्षेत्र हमेशा से विशेष रहा है। यहाँ के स्थानीय मैदानों में आज पारंपरिक जोश और उत्साह के साथ आदिवासी युवा हॉकी महाकुंभ का शुभारंभ किया गया।",
+        "प्रतियोगिता के उद्घाटन मैच में स्थानीय खिलाड़ियों ने उत्कृष्ट खेल कौशल का प्रदर्शन किया। बड़ी संख्या में दर्शक खिलाड़ियों का उत्साहवर्धन करने पहुँचे।",
+        "प्रशासन द्वारा खेल प्रतिभाओं को निखारने के लिए लगातार ऐसे आयोजनों को बढ़ावा दिया जा रहा है।"
+      ],
+      "category": "खेल",
+      "subLocation": "जशपुर",
+      "imageUrl": "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "हॉकी मैच के दौरान उत्कृष्ट प्रदर्शन करते खिलाड़ी",
+      "author": {
+        "id": "usr_admin_01",
+        "name": "सुशील टोप्पो",
+        "role": "ब्यूरो चीफ (Bureau Chief)",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+        "location": "जशपुर"
+      },
+      "publishedAt": "13 अक्टूबर 2026, दोपहर 11:30 बजे",
+      "readTime": "3 मिनट",
+      "isBreaking": true,
+      "isFeatured": true,
+      "views": 1940,
+      "status": "published",
+      "authorId": "usr_staff_01",
+      "authorName": "सुशील टोप्पो",
+      "authorRole": "ब्यूरो चीफ (Bureau Chief)",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "13 अक्टूबर 2026, दोपहर 11:30 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "13 अक्टूबर 2026, दोपहर 11:30 बजे",
+      "updatedAt": "13 अक्टूबर 2026, दोपहर 11:30 बजे"
+    },
+    {
+      "id": "art_08",
+      "title": "छत्तीसगढ़ में महतारी वंदन योजना बनी महिलाओं के लिए वरदान, आर्थिक रूप से हो रहीं सशक्त",
+      "slug": "chhattisgarh-mahtari-vandan-yojana-success",
+      "summary": "छत्तीसगढ़ शासन की महत्वाकांक्षी महतारी वंदन योजना के तहत महिलाओं के बैंक खातों में नियमित राशि पहुँचने से उनमें आर्थिक स्वावलंबन आ रहा है।",
+      "content": [
+        "रायपुर। छत्तीसगढ़ सरकार द्वारा संचालित महतारी वंदन योजना महिलाओं के जीवन में सकारात्मक बदलाव ला रही है। योजना के तहत हर महीने पात्र महिलाओं को आर्थिक सहायता प्रदान की जा रही है।",
+        "जशपुर और आसपास के ग्रामीण अंचल की महिलाओं ने बताया कि इस राशि से वे अपनी छोटी-मोटी आवश्यकताओं को पूरा कर पा रही हैं और बच्चों की शिक्षा में मदद मिल रही है।",
+        "जिला प्रशासन और महिला एवं बाल विकास विभाग योजना के सुचारू क्रियान्वयन हेतु निरंतर मॉनिटरिंग कर रहे हैं।"
+      ],
+      "category": "राजनीति",
+      "subLocation": "जशपुर",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "महतारी वंदन योजना की राशि मिलने से प्रसन्न महिलाएं",
+      "author": {
+        "id": "usr_owner_01",
+        "name": "कलेक्टर संपादक",
+        "role": "प्रधान संपादक (Editor-in-Chief)",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+        "location": "जशपुर नगर"
+      },
+      "publishedAt": "13 अक्टूबर 2026, सुबह 11:00 बजे",
+      "readTime": "4 मिनट",
+      "isTrending": true,
+      "views": 2850,
+      "status": "published",
+      "authorId": "usr_admin_01",
+      "authorName": "कलेक्टर संपादक",
+      "authorRole": "प्रधान संपादक (Editor-in-Chief)",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "13 अक्टूबर 2026, सुबह 11:00 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "13 अक्टूबर 2026, सुबह 11:00 बजे",
+      "updatedAt": "13 अक्टूबर 2026, सुबह 11:00 बजे"
+    },
+    {
+      "id": "art_09",
+      "title": "छत्तीसगढ़ लोक सेवा आयोग (CGPSC) परीक्षा परिणाम घोषित, जशपुर के मेधावी युवाओं ने मारी बाजी",
+      "slug": "cgpsc-result-jashpur-success",
+      "summary": "छत्तीसगढ़ लोक सेवा आयोग द्वारा आयोजित सिविल सेवा परीक्षा के परिणाम घोषित कर दिए गए हैं, जिसमें जशपुर जिले के कई युवाओं ने सफलता हासिल कर जिले का नाम रोशन किया है।",
+      "content": [
+        "रायपुर। छत्तीसगढ़ पीएससी परीक्षा के अंतिम परिणाम आज जारी कर दिए गए। सफलता प्राप्त करने वाले युवाओं में भारी उत्साह का माहौल है।",
+        "जशपुर जिले के ग्रामीण और शहरी इलाकों के कई होनहार युवाओं ने कठिन परिश्रम के बाद यह मुकाम हासिल किया है। सफल अभ्यर्थियों के घरों में बधाई देने वालों का तांता लगा हुआ है।",
+        "स्थानीय जनप्रतिनिधियों और शिक्षाविदों ने सफल युवाओं को उज्ज्वल भविष्य की शुभकामनाएं दी हैं।"
+      ],
+      "category": "शिक्षा",
+      "subLocation": "जशपुर",
+      "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "सफल विद्यार्थियों का स्वागत करते परिवारजन",
+      "author": {
+        "id": "usr_staff_01",
+        "name": "अरुण कुमार भगत",
+        "role": "वरिष्ठ संवाददाता",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+        "location": "पत्थलगांव"
+      },
+      "publishedAt": "13 अक्टूबर 2026, दोपहर 12:00 बजे",
+      "readTime": "3 मिनट",
+      "isBreaking": true,
+      "isFeatured": true,
+      "views": 3120,
+      "status": "published",
+      "authorId": "usr_staff_01",
+      "authorName": "अरुण कुमार भगत",
+      "authorRole": "वरिष्ठ संवाददाता",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "13 अक्टूबर 2026, दोपहर 12:00 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "13 अक्टूबर 2026, दोपहर 12:00 बजे",
+      "updatedAt": "13 अक्टूबर 2026, दोपहर 12:00 बजे"
+    },
+    {
+      "id": "art_10",
+      "title": "जशपुर के प्रसिद्ध रानीदाह जलप्रपात पर सैलानियों की भारी भीड़, वीकेंड पर उमड़े पर्यटक",
+      "slug": "ranidah-waterfall-jashpur-tourist-rush",
+      "summary": "छुट्टियों के दिन जशपुर के प्राकृतिक पर्यटक स्थलों जैसे रानीदाह जलप्रपात और सन्ना वैली में पर्यटकों की भारी भीड़ देखने को मिल रही है।",
+      "content": [
+        "जशपुरनगर। छत्तीसगढ़ के शिमला कहे जाने वाले जशपुर जिले में पर्यटन स्थलों पर पर्यटकों का तांता लगा हुआ है। वीकेंड के मौके पर रानीदाह जलप्रपात और आसपास के प्राकृतिक नजारों का आनंद लेने छत्तीसगढ़ के विभिन्न जिलों से लोग पहुंच रहे हैं।",
+        "पर्यटकों की सुरक्षा और सुविधा के लिए जिला प्रशासन द्वारा विशेष इंतजाम किए गए हैं। प्राकृतिक सुंदरता और ठंडी हवाओं के बीच सैलानी परिवार सहित पिकनिक मना रहे हैं।",
+        "स्थानीय व्यवसायियों और होमस्टे संचालकों को भी पर्यटकों के आने से अच्छा कारोबार मिल रहा है।"
+      ],
+      "category": "मनोरंजन",
+      "subLocation": "जशपुर",
+      "imageUrl": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
+      "imageCaption": "रानीदाह जलप्रपात का मनमोहक दृश्य व पर्यटक",
+      "author": {
+        "id": "usr_admin_01",
+        "name": "सुशील टोप्पो",
+        "role": "ब्यूरो चीफ (Bureau Chief)",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+        "location": "जशपुर"
+      },
+      "publishedAt": "13 अक्टूबर 2026, दोपहर 12:45 बजे",
+      "readTime": "4 मिनट",
+      "isTrending": true,
+      "views": 2640,
+      "status": "published",
+      "authorId": "usr_admin_01",
+      "authorName": "सुशील टोप्पो",
+      "authorRole": "ब्यूरो चीफ (Bureau Chief)",
+      "reviewedBy": "usr_owner_01",
+      "reviewedAt": "13 अक्टूबर 2026, दोपहर 12:45 बजे",
+      "reviewNotes": "स्वीकृत एवं सार्वजनिक रूप से प्रकाशित।",
+      "createdAt": "13 अक्टूबर 2026, दोपहर 12:45 बजे",
+      "updatedAt": "13 अक्टूबर 2026, दोपहर 12:45 बजे"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log_1791973350188_p1bm7",
+      "userId": "usr_admin_01",
+      "userName": "सरोज (Admin / Bureau Chief)",
+      "userRole": "admin",
+      "action": "USER_LOGIN",
+      "details": "सफलतापूर्वक लॉगिन किया (admin)",
+      "ip": "127.0.0.1",
+      "timestamp": "2026-10-14T10:22:30.188Z"
+    }
+  ],
+  "settings": {
+    "websiteName": "Jashpur.News",
+    "location": "Jashpur, Chhattisgarh, India",
+    "ownerPhone": "99073 18667",
+    "helplinePhone": "99073 18667",
+    "approvalRequired": true,
+    "breakingTickerEnabled": true,
+    "allowStaffDraftAutoSubmit": false
+  }
+}
