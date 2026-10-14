@@ -100,64 +100,32 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     // Client-side authentication fallback (for Hostinger static deployments or offline backend)
-    // Check custom credentials stored in localStorage if any
-    let customAdminEmail = 'saroj.jashpur';
-    let customAdminPassword = 'saroj@2026';
+    let adminEmail = 'saroj.jashpur';
+    let adminPassword = 'saroj@2026';
     try {
       const savedCreds = localStorage.getItem('jashpur_admin_custom_creds');
       if (savedCreds) {
         const parsed = JSON.parse(savedCreds);
-        if (parsed.email) customAdminEmail = parsed.email.toLowerCase().trim();
-        if (parsed.password) customAdminPassword = parsed.password.trim();
+        if (parsed.email) adminEmail = parsed.email.toLowerCase().trim();
+        if (parsed.password) adminPassword = parsed.password.trim();
       }
     } catch {
       //
     }
 
-    // 1. Admin / Bureau Chief
+    // Single Admin Login Validation
     if (
-      (cleanEmail === 'saroj.jashpur' || cleanEmail === 'admin@jashpur.news' || cleanEmail === 'admin' || cleanEmail === customAdminEmail) &&
-      (cleanPassword === 'saroj@2026' || cleanPassword === customAdminPassword)
+      (cleanEmail === 'saroj.jashpur' || cleanEmail === 'admin@jashpur.news' || cleanEmail === 'admin' || cleanEmail === adminEmail) &&
+      cleanPassword === adminPassword
     ) {
       const adminUser: User = {
         id: 'usr_admin_01',
         name: 'सरोज (Admin / Bureau Chief)',
-        email: customAdminEmail,
+        email: adminEmail,
         phone: '6267564769',
         role: 'admin',
         status: 'active',
         avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-        permissions: {
-          canPublishDirectly: true,
-          canManageUsers: false,
-          canManageTicker: true,
-          canModerateComments: true,
-          canManageAds: false,
-        },
-        createdAt: new Date().toISOString(),
-        lastLogin: new Date().toISOString()
-      };
-      const fallbackToken = 'tok_local_' + Math.random().toString(36).substring(2);
-      setToken(fallbackToken);
-      setCurrentUser(adminUser);
-      setIsAuthModalOpen(false);
-      setCurrentDashboardView('admin_panel');
-      return { success: true };
-    }
-
-    // 2. Owner / Super Admin
-    if (
-      (cleanEmail === 'owner@jashpur.news' || cleanEmail === 'owner') &&
-      cleanPassword === 'Owner@123'
-    ) {
-      const ownerUser: User = {
-        id: 'usr_owner_01',
-        name: 'कलेक्टर संपादक (Owner)',
-        email: 'owner@jashpur.news',
-        phone: '99073 18667',
-        role: 'owner',
-        status: 'active',
-        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
         permissions: {
           canPublishDirectly: true,
           canManageUsers: true,
@@ -170,45 +138,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       };
       const fallbackToken = 'tok_local_' + Math.random().toString(36).substring(2);
       setToken(fallbackToken);
-      setCurrentUser(ownerUser);
+      setCurrentUser(adminUser);
       setIsAuthModalOpen(false);
-      setCurrentDashboardView('owner_panel');
-      return { success: true };
-    }
-
-    // 3. Staff Reporter
-    if (
-      (cleanEmail === 'staff@jashpur.news' || cleanEmail === 'staff') &&
-      cleanPassword === 'Staff@123'
-    ) {
-      const staffUser: User = {
-        id: 'usr_staff_01',
-        name: 'अरुण कुमार भगत (Staff Reporter)',
-        email: 'staff@jashpur.news',
-        role: 'staff',
-        status: 'active',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
-        permissions: {
-          canPublishDirectly: false,
-          canManageUsers: false,
-          canManageTicker: false,
-          canModerateComments: false,
-          canManageAds: false,
-        },
-        createdAt: new Date().toISOString(),
-        lastLogin: new Date().toISOString()
-      };
-      const fallbackToken = 'tok_local_' + Math.random().toString(36).substring(2);
-      setToken(fallbackToken);
-      setCurrentUser(staffUser);
-      setIsAuthModalOpen(false);
-      setCurrentDashboardView('staff_panel');
+      setCurrentDashboardView('admin_panel');
       return { success: true };
     }
 
     return { 
       success: false, 
-      error: 'अमान्य यूज़र आईडी अथवा पासवर्ड। कृपया सही क्रेडेंशियल दर्ज करें।' 
+      error: 'अमान्य एडमिन आईडी अथवा पासवर्ड। कृपया सही क्रेडेंशियल दर्ज करें।' 
     };
   };
 
