@@ -565,59 +565,79 @@ export const Header: React.FC = () => {
         </div>
       )}
 
-      {/* E-Paper Modal & Real Newspaper Download View */}
+      {/* E-Paper Modal & Real Broadsheet Newspaper Reader */}
       {showEPaperNotice && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-xl max-w-2xl w-full p-6 shadow-2xl border border-gray-200 relative animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+          <div className="bg-[#fcfaf4] rounded-2xl max-w-4xl w-full p-4 sm:p-8 shadow-2xl border-4 border-[#182230] relative animate-in fade-in zoom-in-95 duration-200">
             {/* Close Button */}
             <button
               onClick={() => setShowEPaperNotice(false)}
-              className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+              className="absolute top-4 right-4 p-2 text-gray-700 hover:text-white hover:bg-[#C71920] rounded-full transition-colors cursor-pointer shadow-sm"
+              aria-label="बंद करें"
             >
-              <X className="w-5 h-5" />
+              <X className="w-6 h-6" />
             </button>
 
-            <div className="flex items-center gap-3 border-b pb-4 mb-4">
-              <div className="w-12 h-12 bg-red-100 text-[#C71920] rounded-xl flex items-center justify-center font-bold shadow-xs">
-                <FileText className="w-7 h-7" />
+            {/* Broadsheet Masthead */}
+            <div className="text-center border-b-4 border-black pb-4 mb-5">
+              <div className="flex items-center justify-between text-xs font-serif text-gray-700 border-b border-gray-400 pb-1 mb-2 px-1">
+                <span>रजिस्ट्रेशन नं: CG/JAS/2026/019</span>
+                <span className="font-bold text-[#C71920]">जशपुर एवं छत्तीसगढ़ का नंबर 1 ई-पेपर</span>
+                <span>मूल्य: ₹5.00 मात्र</span>
               </div>
-              <div>
-                <h3 className="text-xl font-extrabold text-[#182230]">Jashpur.News वास्तविक ई-पेपर (E-Paper Edition)</h3>
-                <p className="text-xs text-gray-500">
-                  दिनांक: <span className="font-semibold text-gray-800">{hindiDate}</span> | संस्करण: जशपुर व छत्तीसगढ़ मुख्य संस्करण
-                </p>
-              </div>
-            </div>
-
-            {/* Newspaper Preview Box styled like real news */}
-            <div className="bg-[#fcfbf9] border-2 border-gray-300 rounded-lg p-5 mb-5 shadow-inner">
-              <div className="text-center border-b-2 border-black pb-2 mb-3">
-                <h1 className="text-2xl font-serif font-black tracking-wider text-[#182230]">Jashpur.News दैनिक समाचार पत्र</h1>
-                <div className="flex justify-between text-[11px] font-serif text-gray-700 mt-1 px-2 border-t border-b border-gray-400 py-0.5">
-                  <span>रजिस्ट्रेशन नं: CG/JAS/2026/019</span>
-                  <span>मूल्य: ₹5.00 मात्र</span>
-                  <span>पृष्ठ संख्या: 08</span>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-3 text-left">
-                <div className="border-r border-gray-300 pr-3">
-                  <h4 className="font-serif font-bold text-sm text-[#C71920] leading-tight">मुख्यमंत्री विष्णुदेव साय आज जशपुर प्रवास पर, करोड़ों की सौगात</h4>
-                  <p className="text-[11px] font-serif text-gray-600 mt-1 line-clamp-3">
-                    जशपुर जिले के कांसाबेल व पत्थलगांव में आयोजित विशाल आमसभा में शामिल होकर क्षेत्रवासियों को देंगे ऐतिहासिक विकास कार्यों की सौगात...
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-serif font-bold text-sm text-gray-900 leading-tight">टमाटर एवं चाय बागानों की बंपर पैदावार से किसानों के खिले चेहरे</h4>
-                  <p className="text-[11px] font-serif text-gray-600 mt-1 line-clamp-3">
-                    पत्तागोभी और टमाटर की बंपर पैदावार से मंडियों में रौनक, व्यापारी बाहर से पहुँच रहे हैं जशपुर...
-                  </p>
-                </div>
-              </div>
-              <div className="mt-3 pt-2 border-t border-dashed border-gray-400 text-center text-[11px] text-gray-500 font-serif">
-                --- संपूर्ण 8 पृष्ठों का उच्च गुणवत्ता डिजिटल ई-पेपर संस्करण तैयार है ---
+              <h1 className="text-3xl sm:text-5xl font-serif font-black tracking-wider text-[#182230] uppercase">
+                Jashpur<span className="text-[#C71920]">.News</span> दैनिक
+              </h1>
+              <div className="flex flex-wrap justify-between items-center text-xs font-serif text-gray-800 mt-2 px-2 border-t-2 border-b-2 border-black py-1">
+                <span>दिनांक: <strong>{hindiDate}</strong></span>
+                <span>मुख्य संस्करण: जशपुर, कांसाबेल, पत्थलगांव, कुनकुरी, बगीचा व रायपुर</span>
+                <span>अंक संख्या: 412</span>
               </div>
             </div>
 
+            {/* Real Newspaper Broadsheet Preview Box */}
+            <div className="bg-white border-2 border-black p-4 sm:p-6 mb-6 shadow-inner font-serif">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-gray-300">
+                {/* Column 1 */}
+                <div className="space-y-3 pr-2">
+                  <span className="text-[10px] font-bold bg-[#C71920] text-white px-2 py-0.5 uppercase tracking-wide">प्रमुख खबर</span>
+                  <h3 className="text-base sm:text-lg font-black text-[#182230] leading-snug">
+                    {articles[0]?.title || 'मुख्यमंत्री विष्णुदेव साय आज जशपुर प्रवास पर, करोड़ों की सौगात'}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-gray-700 text-justify">
+                    {articles[0]?.summary || 'जशपुर जिले के कांसाबेल व पत्थलगांव में आयोजित विशाल आमसभा में शामिल होकर क्षेत्रवासियों को देंगे ऐतिहासिक विकास कार्यों की सौगात...'}
+                  </p>
+                </div>
+
+                {/* Column 2 */}
+                <div className="space-y-3 px-2 pt-4 md:pt-0">
+                  <span className="text-[10px] font-bold bg-blue-900 text-white px-2 py-0.5 uppercase tracking-wide">कृषि व व्यापार</span>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-950 leading-snug">
+                    {articles[1]?.title || 'टमाटर एवं चाय बागानों की बंपर पैदावार से किसानों के खिले चेहरे'}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-gray-700 text-justify">
+                    {articles[1]?.summary || 'पत्तागोभी और टमाटर की बंपर पैदावार से मंडियों में रौनक, व्यापारी बाहर से पहुँच रहे हैं जशपुर बाजार में...'}
+                  </p>
+                </div>
+
+                {/* Column 3 */}
+                <div className="space-y-3 pl-2 pt-4 md:pt-0">
+                  <span className="text-[10px] font-bold bg-emerald-800 text-white px-2 py-0.5 uppercase tracking-wide">विशेष रिपोर्ट</span>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-950 leading-snug">
+                    {articles[2]?.title || 'जशपुर के प्राकृतिक पर्यटन स्थलों पर पर्यटकों की भारी भीड़'}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-gray-700 text-justify">
+                    {articles[2]?.summary || 'खुर्मीजार जलप्रपात, रानीदाह और मड़वाानी वॉटरफॉल में वीकेंड पर उमड़ रहे सैलानी, प्रशासन ने बढ़ाई सुरक्षा...'}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-3 border-t-2 border-dashed border-gray-400 text-center text-xs font-bold text-[#C71920]">
+                ✦ संपूर्ण 8 पृष्ठों का उच्च-गुणवत्ता डिजिटल ब्रॉडशीट ई-पेपर संस्करण उपलब्ध है ✦
+              </div>
+            </div>
+
+            {/* Action Buttons */}
             <div className="space-y-3">
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
@@ -652,50 +672,50 @@ export const Header: React.FC = () => {
                         pageContent = `
                           <div class="main-story">
                             <span style="font-size: 11px; background: #C71920; color: #fff; padding: 2px 6px; font-family: 'Poppins', sans-serif; font-weight: bold; text-transform: uppercase;">${lead.category || 'मुख्य समाचार'}</span>
-                            <h2 style="font-size: 22px; font-weight: 900; color: #182230; margin-top: 6px; line-height: 1.3;">${lead.title}</h2>
-                            ${lead.imageUrl ? `<img src="${lead.imageUrl}" style="width: 100%; max-height: 240px; object-fit: cover; border: 1px solid #ccc; margin: 10px 0;" />` : ''}
-                            <p style="font-size: 14px; line-height: 1.6; text-align: justify; color: #222;">
+                            <h2 style="font-size: 24px; font-weight: 900; color: #182230; margin-top: 8px; line-height: 1.3; font-family: 'Martel', serif;">${lead.title}</h2>
+                            ${lead.imageUrl ? `<img src="${lead.imageUrl}" style="width: 100%; max-height: 260px; object-fit: cover; border: 1px solid #111; margin: 12px 0;" />` : ''}
+                            <p style="font-size: 14px; line-height: 1.7; text-align: justify; color: #222; font-family: 'Martel', serif;">
                               ${lead.summary}
                             </p>
                           </div>
 
-                          <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                          <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             ${sec1 ? `
-                              <div style="border-right: 1px solid #ccc; padding-right: 15px;">
+                              <div style="border-right: 1px solid #999; padding-right: 15px;">
                                 <span style="font-size: 10px; font-weight: bold; color: #C71920; text-transform: uppercase;">${sec1.category}</span>
-                                <h3 style="font-size: 15px; font-weight: 700; margin: 4px 0 8px 0; color: #111;">${sec1.title}</h3>
-                                <p style="font-size: 12px; line-height: 1.5; color: #444; text-align: justify;">${sec1.summary}</p>
+                                <h3 style="font-size: 16px; font-weight: 700; margin: 4px 0 8px 0; color: #111; font-family: 'Martel', serif;">${sec1.title}</h3>
+                                <p style="font-size: 12px; line-height: 1.6; color: #333; text-align: justify; font-family: 'Martel', serif;">${sec1.summary}</p>
                               </div>
                             ` : ''}
                             ${sec2 ? `
                               <div style="padding-left: 5px;">
                                 <span style="font-size: 10px; font-weight: bold; color: #C71920; text-transform: uppercase;">${sec2.category}</span>
-                                <h3 style="font-size: 15px; font-weight: 700; margin: 4px 0 8px 0; color: #111;">${sec2.title}</h3>
-                                <p style="font-size: 12px; line-height: 1.5; color: #444; text-align: justify;">${sec2.summary}</p>
+                                <h3 style="font-size: 16px; font-weight: 700; margin: 4px 0 8px 0; color: #111; font-family: 'Martel', serif;">${sec2.title}</h3>
+                                <p style="font-size: 12px; line-height: 1.6; color: #333; text-align: justify; font-family: 'Martel', serif;">${sec2.summary}</p>
                               </div>
                             ` : ''}
                           </div>
                         `;
                       } else {
                         pageContent = `
-                          <h2 style="font-size: 20px; font-weight: 900; color: #182230; border-bottom: 2px solid #111; padding-bottom: 6px; margin-bottom: 15px;">
+                          <h2 style="font-size: 20px; font-weight: 900; color: #182230; border-bottom: 2px solid #111; padding-bottom: 6px; margin-bottom: 15px; font-family: 'Martel', serif;">
                             जशपुर व छत्तीसगढ़ - ताज़ा समाचार (पृष्ठ 0${pageNum})
                           </h2>
                           <div style="display: flex; flex-direction: column; gap: 20px;">
                             ${pageArticles.length > 0 ? pageArticles.map(art => `
-                              <div style="border-bottom: 1px dashed #ccc; padding-bottom: 14px;">
-                                <div style="display: flex; justify-content: space-between; font-size: 10px; font-family: 'Poppins', sans-serif; color: #666; margin-bottom: 3px;">
+                              <div style="border-bottom: 1px dashed #999; padding-bottom: 16px;">
+                                <div style="display: flex; justify-content: space-between; font-size: 10px; font-family: 'Poppins', sans-serif; color: #555; margin-bottom: 4px;">
                                   <span style="font-weight: bold; color: #C71920; text-transform: uppercase;">${art.category} ${art.subLocation ? '· ' + art.subLocation : ''}</span>
                                   <span>${art.publishedAt || 'ताज़ा अपडेट'}</span>
                                 </div>
-                                <h3 style="font-size: 16px; font-weight: 800; color: #111; margin: 0 0 6px 0;">${art.title}</h3>
+                                <h3 style="font-size: 16px; font-weight: 800; color: #111; margin: 0 0 6px 0; font-family: 'Martel', serif;">${art.title}</h3>
                                 <div style="display: flex; gap: 15px; align-items: flex-start;">
-                                  ${art.imageUrl ? `<img src="${art.imageUrl}" style="width: 140px; height: 95px; object-fit: cover; border: 1px solid #ccc; flex-shrink: 0;" />` : ''}
-                                  <p style="font-size: 13px; line-height: 1.5; color: #333; margin: 0; text-align: justify;">${art.summary}</p>
+                                  ${art.imageUrl ? `<img src="${art.imageUrl}" style="width: 140px; height: 95px; object-fit: cover; border: 1px solid #111; flex-shrink: 0;" />` : ''}
+                                  <p style="font-size: 13px; line-height: 1.6; color: #333; margin: 0; text-align: justify; font-family: 'Martel', serif;">${art.summary}</p>
                                 </div>
                               </div>
                             `).join('') : `
-                              <p style="font-style: italic; color: #666; text-align: center; padding: 40px;">इस अंक में जशपुर, पत्थलगांव, कुनकुरी, बगीचा और पूरे छत्तीसगढ़ की सभी प्रमुख खबरें शामिल हैं।</p>
+                              <p style="font-style: italic; color: #666; text-align: center; padding: 40px; font-family: 'Martel', serif;">इस अंक में जशपुर, पत्थलगांव, कुनकुरी, बगीचा और पूरे छत्तीसगढ़ की सभी प्रमुख खबरें शामिल हैं।</p>
                             `}
                           </div>
                         `;
@@ -705,7 +725,7 @@ export const Header: React.FC = () => {
                         <div class="page">
                           <div class="header">
                             <div class="logo">Jashpur.News दैनिक</div>
-                            <div style="font-size: 12px; font-family: 'Poppins', sans-serif; color: #555; margin-top: 4px;">छत्तीसगढ़ का नंबर 1 विश्वसनीय और लोकप्रिय समाचार पत्र</div>
+                            <div style="font-size: 12px; font-family: 'Poppins', sans-serif; color: #333; margin-top: 4px; font-weight: bold;">छत्तीसगढ़ का नंबर 1 विश्वसनीय और लोकप्रिय समाचार पत्र</div>
                             <div class="meta">
                               <span>दिनांक: ${hindiDate}</span>
                               <span>संस्करण: जशपुर / छत्तीसगढ़ मुख्य संस्करण</span>
@@ -725,65 +745,49 @@ export const Header: React.FC = () => {
                       <html lang="hi">
                       <head>
                         <meta charset="UTF-8">
-                        <title>Jashpur.News E-Paper - ${hindiDate}</title>
+                        <title>Jashpur.News E-Paper Broadsheet - ${hindiDate}</title>
                         <style>
                           @import url('https://fonts.googleapis.com/css2?family=Martel:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap');
-                          body { font-family: 'Martel', serif; background: #fff; color: #111; margin: 0; padding: 20px; }
-                          .page { max-width: 800px; margin: 0 auto 40px auto; border: 3px solid #000; padding: 30px; box-shadow: 0 0 15px rgba(0,0,0,0.1); page-break-after: always; background: #fff; }
-                          .header { text-align: center; border-bottom: 3px double #000; padding-bottom: 15px; margin-bottom: 20px; }
-                          .logo { font-size: 38px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin: 0; color: #111; }
-                          .meta { display: flex; justify-content: space-between; font-size: 13px; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 6px 0; margin-top: 10px; font-weight: bold; font-family: 'Poppins', sans-serif; }
-                          .footer-note { text-align: center; font-size: 12px; margin-top: 30px; border-top: 1px dashed #666; padding-top: 10px; color: #555; font-family: 'Poppins', sans-serif; }
-                          .no-print { text-align: center; margin: 20px 0; background: #fdf2f2; padding: 15px; border-radius: 8px; border: 1px solid #f8b4b4; }
-                          .print-btn { background: #C71920; color: #fff; padding: 12px 24px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-family: 'Poppins', sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+                          body { font-family: 'Martel', serif; background: #e5e7eb; color: #111; margin: 0; padding: 20px; }
+                          .page { max-width: 820px; margin: 0 auto 40px auto; border: 4px double #000; padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); page-break-after: always; background: #fdfaf4; }
+                          .header { text-align: center; border-bottom: 3px double #000; padding-bottom: 15px; margin-bottom: 25px; }
+                          .logo { font-size: 40px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin: 0; color: #111; font-family: 'Martel', serif; }
+                          .meta { display: flex; justify-content: space-between; font-size: 13px; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 6px 0; margin-top: 10px; font-weight: bold; font-family: 'Poppins', sans-serif; }
+                          .footer-note { text-align: center; font-size: 12px; margin-top: 40px; border-top: 1px dashed #666; padding-top: 10px; color: #555; font-family: 'Poppins', sans-serif; }
+                          .no-print { text-align: center; margin: 0 auto 30px auto; max-width: 820px; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 2px solid #C71920; }
+                          .print-btn { background: #C71920; color: #fff; padding: 14px 28px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-family: 'Poppins', sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
                           .print-btn:hover { background: #a01318; }
                           @media print {
                             .no-print { display: none; }
-                            body { padding: 0; }
-                            .page { border: none; box-shadow: none; margin: 0; padding: 15px; width: 100%; height: 100vh; }
+                            body { padding: 0; background: #fff; }
+                            .page { border: none; box-shadow: none; margin: 0; padding: 20px; width: 100%; }
                           }
                         </style>
                       </head>
                       <body>
                         <div class="no-print">
-                          <button class="print-btn" onclick="window.print()">🖨️ संपूर्ण ई-पेपर पीडीएफ के रूप में सहेजें / प्रिंट करें (Save All News as PDF)</button>
-                          <p style="font-family: 'Poppins', sans-serif; font-size: 13px; color: #C71920; margin-top: 8px; font-weight: bold;">(प्रिंट डायलॉग खुलने पर Destination में 'Save as PDF' चुनें ताकि सभी ताज़ा खबरें अखबार की तरह डाउनलोड हो सकें)</p>
+                          <button class="print-btn" onclick="window.print()">🖨️ संपूर्ण ई-पेपर पीडीएफ डाउनलोड करें / प्रिंट करें (Save Broadsheet PDF)</button>
+                          <p style="font-family: 'Poppins', sans-serif; font-size: 13px; color: #C71920; margin-top: 10px; font-weight: bold;">(प्रिंट डायलॉग में 'Save as PDF' चुनें ताकि वास्तविक अखबार की तरह डाउनलोड हो सके)</p>
                         </div>
                         ${pagesMarkup}
-                        <script>
-                          window.onload = function() {
-                            setTimeout(function() {
-                              window.print();
-                            }, 400);
-                          };
-                        </script>
                       </body>
                       </html>
                     `);
                     printWindow.document.close();
-                    setShowEPaperNotice(false);
                   }}
-                  className="flex-1 bg-[#C71920] text-white py-3 px-4 rounded-xl text-sm font-extrabold hover:bg-red-700 transition-colors flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                  className="flex-1 py-3 px-4 bg-[#C71920] hover:bg-red-700 text-white rounded-xl font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <FileText className="w-4 h-4" />
-                  <span>वास्तविक ई-पेपर पीडीएफ डाउनलोड करें (Download Real PDF)</span>
+                  <FileText className="w-5 h-5" />
+                  <span>संपूर्ण ई-पेपर पीडीएफ (PDF) देखें व डाउनलोड करें</span>
                 </button>
+
                 <button
-                  onClick={() => {
-                    window.print();
-                    setShowEPaperNotice(false);
-                  }}
-                  className="bg-gray-100 text-gray-800 py-3 px-4 rounded-xl text-sm font-bold hover:bg-gray-200 transition-colors cursor-pointer border border-gray-300"
+                  onClick={() => setShowEPaperNotice(false)}
+                  className="py-3 px-6 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-xl font-bold text-sm transition-colors cursor-pointer"
                 >
-                  प्रिंट करें (Print View)
+                  बंद करें
                 </button>
               </div>
-              <button
-                onClick={() => setShowEPaperNotice(false)}
-                className="w-full py-2 text-gray-500 text-xs hover:text-gray-800 font-medium cursor-pointer"
-              >
-                रद्द करें (Close)
-              </button>
             </div>
           </div>
         </div>
@@ -791,3 +795,4 @@ export const Header: React.FC = () => {
     </header>
   );
 };
+

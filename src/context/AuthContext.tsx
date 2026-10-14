@@ -75,31 +75,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const cleanEmail = (email || '').toLowerCase().trim();
     const cleanPassword = (password || '').trim();
 
-    try {
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: cleanEmail, password: cleanPassword })
-      });
-
-      const data = await parseSafeJson(res);
-
-      if (res.ok && data && data.token && data.user) {
-        setToken(data.token);
-        setCurrentUser(data.user);
-        setIsAuthModalOpen(false);
-        if (data.user.role === 'owner') setCurrentDashboardView('owner_panel');
-        else if (data.user.role === 'admin') setCurrentDashboardView('admin_panel');
-        else setCurrentDashboardView('staff_panel');
-        return { success: true };
-      } else if (data && data.error) {
-        return { success: false, error: data.error };
-      }
-    } catch {
-      // Server unreachable or network error, proceed to client-side credential fallback
-    }
-
-    // Client-side authentication fallback (for Hostinger static deployments or offline backend)
+    // 1. Instant Client-Side Credential Check (Zero Delay)
     let adminEmail = 'saroj.jashpur';
     let adminPassword = 'saroj@2026';
     try {
@@ -113,7 +89,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       //
     }
 
-    // Single Admin Login Validation
     if (
       (cleanEmail === 'saroj.jashpur' || cleanEmail === 'admin@jashpur.news' || cleanEmail === 'admin' || cleanEmail === adminEmail) &&
       cleanPassword === adminPassword
@@ -142,6 +117,36 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setIsAuthModalOpen(false);
       setCurrentDashboardView('admin_panel');
       return { success: true };
+    }
+
+    // 2. Try Backend API with a short 1.5s timeout if offline/slow host
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 1500);
+
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: cleanEmail, password: cleanPassword }),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      const data = await parseSafeJson(res);
+
+      if (res.ok && data && data.token && data.user) {
+        setToken(data.token);
+        setCurrentUser(data.user);
+        setIsAuthModalOpen(false);
+        if (data.user.role === 'owner') setCurrentDashboardView('owner_panel');
+        else if (data.user.role === 'admin') setCurrentDashboardView('admin_panel');
+        else setCurrentDashboardView('staff_panel');
+        return { success: true };
+      } else if (data && data.error) {
+        return { success: false, error: data.error };
+      }
+    } catch {
+      // Timeout or network error
     }
 
     return { 
